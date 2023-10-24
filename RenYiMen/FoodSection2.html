@@ -229,9 +229,9 @@
                 }
             },
             methods: {
-                sendData() {  // 送出資料
-                    this.client.publish('mqtt/wy', '2')
-                }
+                //sendData() {  // 送出資料
+                    //this.client.publish('mqtt/wy', '2')
+                //}
             },
             created() {
                 this.client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt')
@@ -239,7 +239,7 @@
             mounted() {
                 this.client.on('connect', () => { // 連線成功
                     this.client.subscribe('mqtt/wy')
-                    // this.sendData()
+                    this.sendData()
                 })
                 this.client.on('message', (topic, message) => { // 接收訊息
                     console.log(topic + ": " + message.toString())
