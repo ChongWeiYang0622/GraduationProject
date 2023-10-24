@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FoodSection6</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+            padding: 0px;
+            font-family: Arial, sans-serif;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header a {
+            font-size: 2rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header a img {
+            height: 50px;
+            width: 50px;
+            vertical-align: middle;
+        }
+
+        hr {
+            border: 1px solid #000;
+            margin: 20px 0;
+        }
+
+        .card {
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007BFF;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .footer-bottom {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container justify-content-center align-items-center">
+            <a class="navbar-brand" href="HomePage.html">
+                <img src="image1.jpg" alt="Logo">
+                任意门
+            </a>
+        </div>
+    </nav>
+
+    <nav>
+        <a href="#">美食推荐表单</a>
+        <a href="#">景点推荐表单</a>
+    </nav>
+
+    <div class="center">
+        <img src="image0.jpg" width="90%" height="500px">
+    </div>
+    
+    <div id="app">
+        <hr>
+
+        <div class="container">
+            <h1 class="text-center">店家选项</h1>
+
+            <hr>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card">
+                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">王塔米糕</h5>
+                            <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Card Title</h5>
+                            <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>《畢業專題:任意門》組長: 組員: 組員: 組員: 組員:</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    client: null,
+                }
+            },
+            methods: {
+                sendData() {  // 送出資料
+                    this.client.publish('mqtt/wy', '6')
+                }
+            },
+            created() {
+                this.client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt')
+            },
+            mounted() {
+                this.client.on('connect', () => { // 連線成功
+                    this.client.subscribe('mqtt/wy')
+                    // this.sendData()
+                })
+                this.client.on('message', (topic, message) => { // 接收訊息
+                    console.log(topic + ": " + message.toString())
+                    if (message.toString() === "1") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection1.html'
+                    } else if (message.toString() === "2") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection2.html'
+                    } else if (message.toString() === "3") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection3.html'
+                    } else if (message.toString() === "4") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection4.html'
+                    } else if (message.toString() === "5") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection5.html'
+                    } else if (message.toString() === "6") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection6.html'
+                    } else if (message.toString() === "7") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection1.html'
+                    } else if (message.toString() === "8") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection2.html'
+                    } else if (message.toString() === "9") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection3.html'
+                    } else if (message.toString() === "10") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection4.html'
+                    } else if (message.toString() === "11") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection5.html'
+                    } else if (message.toString() === "12") {
+                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection6.html'
+                    }
+                })
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
