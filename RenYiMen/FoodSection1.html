@@ -10,6 +10,15 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
+        .night-mode {
+            background-color: #222;
+            /* 夜间模式背景颜色 */
+            color: #fff;
+            /* 夜间模式文本颜色 */
+            font-size: 16px;
+            /* 夜间模式字体大小 */
+        }
+
         body {
             background-color: #f9f9f9;
             padding: 0px;
@@ -21,7 +30,7 @@
         }
 
         nav {
-            background-color: #f2f2f2;
+            background-color: #db71a1;
             padding: 10px;
             text-align: center;
         }
@@ -36,8 +45,8 @@
         }
 
         nav a:hover {
-            background-color: #333;
-            color: #fff;
+            background-color: #fff;
+            color: #db71a1;
         }
 
         .navbar-brand img {
@@ -67,40 +76,38 @@
             vertical-align: middle;
         }
 
-        hr {
-            border: 1px solid #000;
-            margin: 20px 0;
-        }
-
         .card {
             width: 100%;
-            background-color: #fff;
+            background-color: #db71a1;
             border: 1px solid #ddd;
             border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 10px;
+            margin: 10px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .card img {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
+            width: 100%;
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #F8F8F8;
+        }
+
         .btn-primary {
-            background-color: #007BFF;
+            background-color: #F8F8F8;
             border: none;
+            color: #db71a1;
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
+            background-color: #eaeaea;
+            color: #000000;
         }
 
         .footer-bottom {
@@ -116,7 +123,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-white bg-white">
         <div class="container justify-content-center align-items-center">
             <a class="navbar-brand" href="HomePage.html">
                 <img src="image1.jpg" alt="Logo">
@@ -129,150 +136,128 @@
         <a href="#">美食推荐表单</a>
         <a href="#">景点推荐表单</a>
         <a href="QrCode.html">扫描器</a>
+        <button onclick="toggleNightMode()">切换夜间模式</button>
     </nav>
 
     <div class="center">
         <img src="image0.jpg" width="90%" height="500px">
     </div>
-    
-    <div id="app">
+
+
+    <hr>
+
+    <div class="container">
+        <h1 class="text-center">店家选项</h1>
+
         <hr>
 
-        <div class="container">
-            <h1 class="text-center">店家选项</h1>
-
-            <hr>
-
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card">
-                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
-                        <div class="card-body">
-                            <h5 class="card-title">王塔米糕</h5>
-                            <a href="Fs1-1.html" class="btn btn-primary">点击进入</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
-                        <div class="card-body">
-                            <h5 class="card-title">15號甜甜圈</h5>
-                            <a href="Fs1-2.html" class="btn btn-primary">点击进入</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
-                        <div class="card-body">
-                            <h5 class="card-title">朝朝暮暮</h5>
-                            <a href="Fs1-3.html" class="btn btn-primary">点击进入</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="Fs1-4.html" class="btn btn-primary">点击进入</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="Fs1-5.html" class="btn btn-primary">点击进入</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card">
-                        <img src="image0.jpg" class="card-img-top" alt="Image 1">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="Fs1-6.html" class="btn btn-primary">点击进入</a>
-                        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">王塔米糕</h5>
+                        <a href="Fs1-1.html" class="btn btn-primary">点击进入</a>
                     </div>
                 </div>
             </div>
 
-            <hr>
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">15號甜甜圈</h5>
+                        <a href="Fs1-2.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">朝朝暮暮</h5>
+                        <a href="Fs1-3.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">敬请期待</h5>
+                        <a href="Fs1-4.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">敬请期待</h5>
+                        <a href="Fs1-5.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">敬请期待</h5>
+                        <a href="Fs1-6.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <hr>
+    </div>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <p>《畢業專題:任意門》組長: 組員: 組員: 組員: 組員:</p>
-            </div>
+    <hr>
+    <hr>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>《畢業專題:任意門》組長: 組員: 組員: 組員: 組員:</p>
         </div>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-    <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    client: null,
-                }
-            },
-            methods: {
-                //sendData() {  // 送出資料
-                    //this.client.publish('mqtt/wy', '1')
-                //}
-            },
-            created() {
-                this.client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt')
-            },
-            mounted() {
-                this.client.on('connect', () => { // 連線成功
-                    this.client.subscribe('mqtt/wy')
-                    this.sendData()
-                })
-                this.client.on('message', (topic, message) => { // 接收訊息
-                    console.log(topic + ": " + message.toString())
-                    if (message.toString() === "1") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection1.html'
-                    } else if (message.toString() === "2") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection2.html'
-                    } else if (message.toString() === "3") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection3.html'
-                    } else if (message.toString() === "4") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection4.html'
-                    } else if (message.toString() === "5") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection5.html'
-                    } else if (message.toString() === "6") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection6.html'
-                    } else if (message.toString() === "7") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection1.html'
-                    } else if (message.toString() === "8") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection2.html'
-                    } else if (message.toString() === "9") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection3.html'
-                    } else if (message.toString() === "10") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection4.html'
-                    } else if (message.toString() === "11") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection5.html'
-                    } else if (message.toString() === "12") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection6.html'
-                    }
-                })
-            }
-        })
-        app.mount('#app')
     </script>
+    <script>
+        function toggleNightMode() {
+            var body = document.body;
+            body.classList.toggle("night-mode");
+        }
+    </script>
+    <script>
+        var idleTimeout; // 定义全局变量来存储定时器ID
+        var idleTime = 120000; // 设置空闲时间（以毫秒为单位），此处设置为2秒
+
+        // 重置定时器函数
+        function resetIdleTimer() {
+            clearTimeout(idleTimeout);
+            idleTimeout = setTimeout(function () {
+                window.location.href = "QrCode.html"; // 这里替换为您的首页URL
+            }, idleTime);
+        }
+
+        // 启动定时器
+        function startIdleTimer() {
+            resetIdleTimer(); // 启动时重置计时器
+        }
+
+        // 监听用户交互事件
+        document.addEventListener("mousemove", resetIdleTimer);
+        document.addEventListener("keypress", resetIdleTimer);
+
+        // 初始化页面时启动计时器
+        startIdleTimer();
+    </Script>
 </body>
 
 </html>

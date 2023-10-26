@@ -133,7 +133,7 @@
     <div class="center">
         <img src="image0.jpg" width="90%" height="500px">
     </div>
-    
+
     <div id="app">
         <hr>
 
@@ -221,57 +221,35 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    client: null,
-                }
-            },
-            methods: {
-                sendData() {  // 送出資料
-                    this.client.publish('mqtt/wy', '7')
-                }
-            },
-            created() {
-                this.client = mqtt.connect('wss://broker.hivemq.com:8884/mqtt')
-            },
-            mounted() {
-                this.client.on('connect', () => { // 連線成功
-                    this.client.subscribe('mqtt/wy')
-                    // this.sendData()
-                })
-                this.client.on('message', (topic, message) => { // 接收訊息
-                    console.log(topic + ": " + message.toString())
-                    if (message.toString() === "1") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection1.html'
-                    } else if (message.toString() === "2") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection2.html'
-                    } else if (message.toString() === "3") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection3.html'
-                    } else if (message.toString() === "4") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection4.html'
-                    } else if (message.toString() === "5") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection5.html'
-                    } else if (message.toString() === "6") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/FoodSection6.html'
-                    } else if (message.toString() === "7") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection1.html'
-                    } else if (message.toString() === "8") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection2.html'
-                    } else if (message.toString() === "9") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection3.html'
-                    } else if (message.toString() === "10") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection4.html'
-                    } else if (message.toString() === "11") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection5.html'
-                    } else if (message.toString() === "12") {
-                        window.location.href = 'https://chongweiyang0622.github.io/GraduationProject/RenYiMen/AttractionSection6.html'
-                    }
-                })
-            }
-        })
-        app.mount('#app')
-    </script>
+        var idleTimeout; // 定义全局变量来存储定时器ID
+        var idleTime = 2000; // 设置空闲时间（以毫秒为单位），此处设置为2秒
+
+        // 重置定时器函数
+        function resetIdleTimer() {
+            clearTimeout(idleTimeout);
+            idleTimeout = setTimeout(function () {
+                window.location.href = "QrCode.html"; // 这里替换为您的首页URL
+            }, idleTime);
+        }
+
+        // 启动定时器
+        function startIdleTimer() {
+            resetIdleTimer(); // 启动时重置计时器
+        }
+
+        // 监听用户交互事件
+        document.addEventListener("mousemove", resetIdleTimer);
+        document.addEventListener("keypress", resetIdleTimer);
+
+        // 查找视频元素
+        var videoElement = document.getElementById("yourVideoElementId"); // 用您的视频元素的实际ID替换"yourVideoElementId"
+
+        // 添加视频播放事件监听器
+        videoElement.addEventListener("play", resetIdleTimer);
+
+        // 初始化页面时启动计时器
+        startIdleTimer();
+    </Script>
 </body>
 
 </html>
