@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>扫描与视频</title>
+</head>
+<body>
+    <div id="scan-page">
+        <h1>扫描页面</h1>
+        <!-- 添加扫描相关的HTML元素，如二维码扫描器 -->
+        <button onclick="startVideo()">开始视频</button>
+    </div>
+    
+    <div id="video-page" style="display: none;">
+        <h1>视频页面</h1>
+        <video id="video-player" controls autoplay>
+            <source src="your-video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        function startVideo() {
+            document.getElementById('scan-page').style.display = 'none';
+            document.getElementById('video-page').style.display = 'block';
+
+            // 获取视频元素
+            var video = document.getElementById('video-player');
+
+            // 监听视频播放结束事件
+            video.addEventListener('ended', function() {
+                // 返回到扫描页面
+                document.getElementById('video-page').style.display = 'none';
+                document.getElementById('scan-page').style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

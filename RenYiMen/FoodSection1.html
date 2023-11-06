@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>清水区</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        .night-mode {
+            background-color: #222;
+            /* 夜间模式背景颜色 */
+            color: #fff;
+            /* 夜间模式文本颜色 */
+            font-size: 16px;
+            /* 夜间模式字体大小 */
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 0px;
+            font-family: Arial, sans-serif;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        nav {
+            background-color: #db71a1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            color: #db71a1;
+        }
+
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header a {
+            font-size: 2rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .header a img {
+            height: 50px;
+            width: 50px;
+            vertical-align: middle;
+        }
+
+        .card {
+            width: 100%;
+            background-color: #db71a1;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #F8F8F8;
+        }
+
+        .btn-primary {
+            background-color: #F8F8F8;
+            border: none;
+            color: #db71a1;
+        }
+
+        .btn-primary:hover {
+            background-color: #eaeaea;
+            color: #000000;
+        }
+
+        .footer-bottom {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-white bg-white">
+        <div class="container justify-content-center align-items-center">
+            <a class="navbar-brand" href="HomePage.html">
+                <img src="image1.jpg" alt="Logo">
+                任意门
+            </a>
+        </div>
+    </nav>
+
+    <nav>
+        <a href="HomePage.html">首頁</a>
+        <a href="Feedback.html">推荐表单</a>
+        <a href="QrCode.html">扫描器</a>
+        <button onclick="toggleNightMode()">切换夜间模式</button>
+    </nav>
+
+    <div class="center">
+        <img src="区域图片/清水區.jpg" width="65%" height="500px">
+    </div>
+
+
+    <hr>
+
+    <div class="container">
+        <h1 class="text-center">店家选项</h1>
+
+        <hr>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">王塔米糕</h5>
+                        <a href="Fs1-1.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">15號甜甜圈</h5>
+                        <a href="Fs1-2.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="image0.jpg" class="card-img-top" alt="Image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">朝朝暮暮</h5>
+                        <a href="Fs1-3.html" class="btn btn-primary">点击进入</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+
+    <hr>
+    <hr>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p id="date-time"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+        function toggleNightMode() {
+            var body = document.body;
+            body.classList.toggle("night-mode");
+        }
+    </script>
+    <script>
+        var idleTimeout; // 定义全局变量来存储定时器ID
+        var idleTime = 120000; // 设置空闲时间（以毫秒为单位），此处设置为2秒
+
+        // 重置定时器函数
+        function resetIdleTimer() {
+            clearTimeout(idleTimeout);
+            idleTimeout = setTimeout(function () {
+                window.location.href = "QrCode.html"; // 这里替换为您的首页URL
+            }, idleTime);
+        }
+
+        // 启动定时器
+        function startIdleTimer() {
+            resetIdleTimer(); // 启动时重置计时器
+        }
+
+        // 监听用户交互事件
+        document.addEventListener("mousemove", resetIdleTimer);
+        document.addEventListener("keypress", resetIdleTimer);
+
+        // 初始化页面时启动计时器
+        startIdleTimer();
+    </Script>
+    <script>
+        const currentDate = new Date();
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit' };
+      
+        const dateElement = document.getElementById('date-time');
+        dateElement.innerHTML = `|| 今天: ${currentDate.toLocaleDateString('en-US', dateOptions)} || 时间: ${currentDate.toLocaleTimeString('en-US', timeOptions)} ||`;
+    </script>
+</body>
+
+</html>
