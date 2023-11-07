@@ -19,6 +19,38 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
+        .offcanvas-body {
+            background-image: url('offcanvasbackground.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            color: #000;
+            /* Text color for the body */
+            padding: 10px;
+            /* Add padding for spacing */
+        }
+
+        .btn-grad {
+            background-image: linear-gradient(to right, #BA5370 0%, #F4E2D8 51%, #BA5370 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
         .night-mode {
             background-color: #222;
             /* 夜间模式背景颜色 */
@@ -90,18 +122,26 @@
         }
 
         .card {
+            height: 50%;
             width: 100%;
-            background-color: #db71a1;
-            border: 1px solid #ddd;
+            background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
+            margin: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
             border-radius: 10px;
-            padding: 10px;
-            margin: 10px auto;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            transform: origin 50%;
         }
 
         .card img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 15 0 0%;
             margin-bottom: 10px;
         }
 
@@ -132,6 +172,30 @@
             bottom: 0;
             width: 100%;
         }
+
+        .card-inner {
+            perspective: 1000px;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card-front,
+        .card-back {
+            position: fixed;
+            backface-visibility: hidden;
+        }
+
+        .card-front {
+            backface-visibility: hidden;
+            transform: rotateY(0deg);
+        }
+
+        .card-back {
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
     </style>
 </head>
 
@@ -149,8 +213,128 @@
         <a href="HomePage.html">首頁</a>
         <a href="Feedback.html">推荐表单</a>
         <a href="QrCode.html">扫描器</a>
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            快速選項
+        </a>
         <button onclick="toggleNightMode()">切换夜间模式</button>
     </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">快速選項</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="btn-grad">
+                <div class="btn-grad:hover">
+                    店家區域
+                </div>
+            </div>
+            <hr>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="清水区" data-bs-toggle="dropdown">
+                    清水区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="清水区">
+                    <li><a class="dropdown-item" href="Fs1-1.html">王塔米糕</a></li>
+                    <li><a class="dropdown-item" href="Fs1-2.html">15號甜甜圈</a></li>
+                    <li><a class="dropdown-item" href="Fs1-3.html">朝朝暮暮</a></li>
+                </ul>
+
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="沙路区" data-bs-toggle="dropdown">
+                    沙路区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="沙路区">
+                    <li><a class="dropdown-item" href="Fs2-1.html">阿義鳳梨冰</a></li>
+                    <li><a class="dropdown-item" href="Fs2-2.html">沙鹿拉仔麵</a></li>
+                    <li><a class="dropdown-item" href="Fs2-3.html">沙鹿肉圓福</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="龙井区" data-bs-toggle="dropdown">
+                    龙井区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="龙井区">
+                    <li><a class="dropdown-item" href="Fs3-1.html">思維輕甜食</a></li>
+                    <li><a class="dropdown-item" href="Fs3-2.html">麻入口</a></li>
+                    <li><a class="dropdown-item" href="Fs3-3.html">Mr.38咖喱</a></li>
+                    <li><a class="dropdown-item" href="Fs3-4.html">橘光呼嚕</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="北区" data-bs-toggle="dropdown">
+                    北区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="北区">
+                    <li><a class="dropdown-item" href="Fs4-1.html">義興粥舖</a></li>
+                    <li><a class="dropdown-item" href="Fs4-2.html">桐生日可麗餅</a></li>
+                </ul>
+
+                <hr>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="西区" data-bs-toggle="dropdown">
+                    西区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="西区">
+                    <li><a class="dropdown-item" href="Fs5-1.html">蕗莘</a></li>
+                    <li><a class="dropdown-item" href="Fs5-2.html">倆柒貳貓</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="(西区)审计新村" data-bs-toggle="dropdown">
+                    (西区)审计新村
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="(西区)审计新村">
+                    <li><a class="dropdown-item" href="Fs6-1.html">甜月亮</a></li>
+                    <li><a class="dropdown-item" href="Fs6-2.html">黑心地瓜球</a></li>
+                    <li><a class="dropdown-item" href="Fs6-3.html">愚室</a></li>
+                    <li><a class="dropdown-item" href="Fs6-4.html">來甲奔</a></li>
+                    <li><a class="dropdown-item" href="Fs6-5.html">艸水木堂</a></li>
+                    <li><a class="dropdown-item" href="Fs6-6.html">成真咖啡</a></li>
+                </ul>
+
+                <hr>
+
+                <div class="btn-grad">
+                    <div class="btn-grad:hover">
+                        景點區域
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="東区" data-bs-toggle="dropdown">
+                    東区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="東区">
+                    <li><a class="dropdown-item" href="As1-1.html">旱溪夜市</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="西区" data-bs-toggle="dropdown">
+                    西区
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="西区">
+                    <li><a class="dropdown-item" href="As2-1.html">美術館</a></li>
+                    <li><a class="dropdown-item" href="As2-2.html">綠光</a></li>
+                    <li><a class="dropdown-item" href="As2-3.html">Park2</a></li>
+                </ul>
+
+                <hr>
+
+                <div class="btn-grad">
+                    <div class="btn-grad:hover">
+                        學校專區
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="靜宜大學" data-bs-toggle="dropdown">
+                    靜宜大學
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="靜宜大學">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class="container my-5">
         <div id="slideshow" class="carousel slide" data-bs-ride="carousel">
@@ -260,24 +444,35 @@
 
         <hr>
 
-        <div>
-            <h1 class="center">美食区域选项</h1>
-            <hr>
+        <div class="btn-grad">
+            <div class="btn-grad:hover">
+                <h1 class="center">美食区域选项</h1>
+            </div>
         </div>
+        <hr>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                    <div class="card-body">
-                        <h5 class="card-title">清水区</h5>
-                        <a href="FoodSection1.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">清水区</h5>
+                            <a href="FoodSection1.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">清水区</h5>
+                            <a href="FoodSection1.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image0.jpg" class="card-img-top">
+                    <img src="image2.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">沙路区</h5>
                         <a href="FoodSection2.html" class="btn btn-primary">进入</a>
@@ -286,19 +481,37 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">龙井区</h5>
-                        <a href="FoodSection3.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">龍井區</h5>
+                            <a href="FoodSection3.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">龍井區</h5>
+                            <a href="FoodSection3.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">北区</h5>
-                        <a href="FoodSection4.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">北區</h5>
+                            <a href="FoodSection4.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">北區</h5>
+                            <a href="FoodSection4.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -313,30 +526,49 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image2.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">(西区)审计新村</h5>
-                        <a href="FoodSection6.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">(西区)审计新村</h5>
+                            <a href="FoodSection6.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">(西区)审计新村</h5>
+                            <a href="FoodSection6.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
         <hr>
 
-        <div>
-            <h1 class="center">景点区域选项</h1>
-            <hr>
+        <div class="btn-grad">
+            <div class="btn-grad:hover">
+                <h1 class="center">景点区域选项</h1>
+            </div>
         </div>
+        <hr>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image0.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">东区</h5>
-                        <a href="AttractionSection1.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">东区</h5>
+                            <a href="AttractionSection1.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">东区</h5>
+                            <a href="AttractionSection1.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -351,10 +583,19 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">敬请期待</h5>
-                        <a href="AttractionSection3.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">敬请期待</h5>
+                            <a href="AttractionSection3.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">敬请期待</h5>
+                            <a href="AttractionSection3.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -362,21 +603,34 @@
 
         <hr>
 
-        <div>
-            <h1 class="center">学校专区</h1>
-            <hr>
+        <div class="btn-grad">
+            <div class="btn-grad:hover">
+                <h1 class="center">学校专区</h1>
+            </div>
         </div>
+        <hr>
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
+
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image0.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">靜宜大學</h5>
-                        <a href="SchoolSection1.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">靜宜大學</h5>
+                            <a href="SchoolSection1.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">靜宜大學</h5>
+                            <a href="SchoolSection1.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card h-100 text-center">
                     <img src="image0.jpg" class="card-img-top">
@@ -386,15 +640,26 @@
                     </div>
                 </div>
             </div>
+
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">敬请期待</h5>
-                        <a href="SchoolSection3.html" class="btn btn-primary">进入</a>
+                    <div class="card-front">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">敬请期待</h5>
+                            <a href="SchoolSection3.html" class="btn btn-primary">进入</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
+                        <div class="card-body">
+                            <h5 class="card-title">敬请期待</h5>
+                            <a href="SchoolSection3.html" class="btn btn-primary">进入</a>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <hr>
@@ -412,10 +677,44 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
     <script>
+        const cards = document.querySelectorAll('.card');
+        let currentIndex = 0; // 用于跟踪当前应该反转的卡片索引
+
+        function flipCard() {
+            // 翻转当前索引的卡片
+            cards[currentIndex].style.transform = 'rotateY(180deg)';
+
+            // 将上一个索引的卡片恢复正常
+            const prevIndex = (currentIndex === 0) ? cards.length - 1 : currentIndex - 1;
+            cards[prevIndex].style.transform = 'rotateY(0deg)';
+
+            // 更新索引以反转下一个卡片
+            currentIndex = (currentIndex === cards.length - 1) ? 0 : currentIndex + 1;
+        }
+
+        // 每3秒自动翻转卡片
+        setInterval(flipCard, 3000);
+    </script>
+    <script>
         function toggleNightMode() {
             var body = document.body;
             body.classList.toggle("night-mode");
+
+            // Store the user's preference in local storage
+            if (body.classList.contains("night-mode")) {
+                localStorage.setItem("nightMode", "on");
+            } else {
+                localStorage.setItem("nightMode", "off");
+            }
         }
+
+        // Check for the user's night mode preference on page load
+        window.onload = function () {
+            var nightMode = localStorage.getItem("nightMode");
+            if (nightMode === "on") {
+                toggleNightMode();
+            }
+        };
     </script>
     <script>
         var idleTimeout; // 定义全局变量来存储定时器ID
@@ -445,7 +744,7 @@
         const currentDate = new Date();
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
         const timeOptions = { hour: '2-digit', minute: '2-digit' };
-      
+
         const dateElement = document.getElementById('date-time');
         dateElement.innerHTML = `|| 今天: ${currentDate.toLocaleDateString('en-US', dateOptions)} || 时间: ${currentDate.toLocaleTimeString('en-US', timeOptions)} ||`;
     </script>

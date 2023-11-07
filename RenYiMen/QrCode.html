@@ -109,10 +109,23 @@
             bottom: 0;
             width: 100%;
         }
+
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
+    <video autoplay muted loop id="bg-video">
+        <source src="開門特效影片.mp4" type="video/mp4">
+    </video>
+
     <nav class="navbar navbar-white bg-white">
         <div class="container justify-content-center align-items-center">
             <a class="navbar-brand" href="HomePage.html">
