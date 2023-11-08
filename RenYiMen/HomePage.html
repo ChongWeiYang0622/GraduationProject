@@ -51,15 +51,6 @@
             text-decoration: none;
         }
 
-        .night-mode {
-            background-color: #222;
-            /* 夜间模式背景颜色 */
-            color: #fff;
-            /* 夜间模式文本颜色 */
-            font-size: 16px;
-            /* 夜间模式字体大小 */
-        }
-
         body {
             background-color: #f7f7f7;
             font-family: Arial, sans-serif;
@@ -196,10 +187,23 @@
             backface-visibility: hidden;
             transform: rotateY(180deg);
         }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
+    <video autoplay loop muted>
+        <source src="首頁背景影片.mp4" type="video/mp4">
+    </video>
+
     <nav class="navbar navbar-white bg-white">
         <div class="container justify-content-center align-items-center">
             <a class="navbar-brand" href="HomePage.html">
@@ -217,7 +221,6 @@
             aria-controls="offcanvasExample">
             快速選項
         </a>
-        <button onclick="toggleNightMode()">切换夜间模式</button>
     </nav>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -453,19 +456,10 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="首頁店家區域/清水.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">清水区</h5>
-                            <a href="FoodSection1.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="首頁店家區域/清水.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">清水区</h5>
-                            <a href="FoodSection1.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/清水.jpg" class="card-img-top" data-lightbox="image-gallery">
+                    <div class="card-body">
+                        <h5 class="card-title">清水区</h5>
+                        <a href="FoodSection1.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
@@ -480,37 +474,19 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="首頁店家區域/龍井區.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">龍井區</h5>
-                            <a href="FoodSection3.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="首頁店家區域/龍井區.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">龍井區</h5>
-                            <a href="FoodSection3.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/龍井區.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">龍井區</h5>
+                        <a href="FoodSection3.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="首頁店家區域/北區.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">北區</h5>
-                            <a href="FoodSection4.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="首頁店家區域/北區.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">北區</h5>
-                            <a href="FoodSection4.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/北區.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">北區</h5>
+                        <a href="FoodSection4.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
@@ -525,19 +501,10 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="首頁店家區域/西區.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">(西区)审计新村</h5>
-                            <a href="FoodSection6.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="首頁店家區域/西區.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">(西区)审计新村</h5>
-                            <a href="FoodSection6.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/西區.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">(西区)审计新村</h5>
+                        <a href="FoodSection6.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
@@ -555,25 +522,16 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">东区</h5>
-                            <a href="AttractionSection1.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">东区</h5>
-                            <a href="AttractionSection1.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/東區.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">东区</h5>
+                        <a href="AttractionSection1.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image0.jpg" class="card-img-top">
+                    <img src="首頁店家區域/西區.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">西区</h5>
                         <a href="AttractionSection2.html" class="btn btn-primary">进入</a>
@@ -582,19 +540,10 @@
             </div>
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="AttractionSection3.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="AttractionSection3.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/敬請期待.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">敬请期待</h5>
+                        <a href="AttractionSection3.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
@@ -613,26 +562,17 @@
 
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">靜宜大學</h5>
-                            <a href="SchoolSection1.html" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">靜宜大學</h5>
-                            <a href="SchoolSection1.html" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/沙路區.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">靜宜大學</h5>
+                        <a href="SchoolSection1.html" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
 
             <div class="col">
                 <div class="card h-100 text-center">
-                    <img src="image0.jpg" class="card-img-top">
+                    <img src="首頁店家區域/敬請期待.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">敬请期待</h5>
                         <a href="#" class="btn btn-primary">进入</a>
@@ -642,19 +582,10 @@
 
             <div class="col">
                 <div class="card h-100 text-center">
-                    <div class="card-front">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="#" class="btn btn-primary">进入</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <img src="image0.jpg" class="card-img-top" data-lightbox="image-gallery">
-                        <div class="card-body">
-                            <h5 class="card-title">敬请期待</h5>
-                            <a href="#" class="btn btn-primary">进入</a>
-                        </div>
+                    <img src="首頁店家區域/敬請期待.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">敬请期待</h5>
+                        <a href="#" class="btn btn-primary">进入</a>
                     </div>
                 </div>
             </div>
@@ -671,50 +602,9 @@
         </div>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
-    <script>
-        const cards = document.querySelectorAll('.card');
-        let currentIndex = 0; // 用于跟踪当前应该反转的卡片索引
-
-        function flipCard() {
-            // 翻转当前索引的卡片
-            cards[currentIndex].style.transform = 'rotateY(180deg)';
-
-            // 将上一个索引的卡片恢复正常
-            const prevIndex = (currentIndex === 0) ? cards.length - 1 : currentIndex - 1;
-            cards[prevIndex].style.transform = 'rotateY(0deg)';
-
-            // 更新索引以反转下一个卡片
-            currentIndex = (currentIndex === cards.length - 1) ? 0 : currentIndex + 1;
-        }
-
-        // 每3秒自动翻转卡片
-        setInterval(flipCard, 3000);
-    </script>
-    <script>
-        function toggleNightMode() {
-            var body = document.body;
-            body.classList.toggle("night-mode");
-
-            // Store the user's preference in local storage
-            if (body.classList.contains("night-mode")) {
-                localStorage.setItem("nightMode", "on");
-            } else {
-                localStorage.setItem("nightMode", "off");
-            }
-        }
-
-        // Check for the user's night mode preference on page load
-        window.onload = function () {
-            var nightMode = localStorage.getItem("nightMode");
-            if (nightMode === "on") {
-                toggleNightMode();
-            }
-        };
-    </script>
     <script>
         const currentDate = new Date();
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };

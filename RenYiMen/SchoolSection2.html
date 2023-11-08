@@ -159,14 +159,27 @@
             bottom: 0;
             width: 100%;
         }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
+    <video autoplay loop muted>
+        <source src="景點背景.mp4" type="video/mp4">
+    </video>
+
     <nav class="navbar navbar-white bg-white">
         <div class="container justify-content-center align-items-center">
             <a class="navbar-brand" href="HomePage.html">
-                <img src="image1.jpg" alt="Logo">
+                <img src="logo.jpg" alt="Logo">
                 任意门
             </a>
         </div>
@@ -180,7 +193,6 @@
             aria-controls="offcanvasExample">
             快速選項
         </a>
-        <button onclick="toggleNightMode()">切换夜间模式</button>
     </nav>
 
     <hr>
@@ -324,7 +336,7 @@
                     <img src="image0.jpg" class="card-img-top" alt="Image 1">
                     <div class="card-body">
                         <h5 class="card-title">王塔米糕</h5>
-                        <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        <a href="#" class="btn btn-primary">点击进入</a>
                     </div>
                 </div>
             </div>
@@ -334,7 +346,7 @@
                     <img src="image0.jpg" class="card-img-top" alt="Image 1">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
-                        <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        <a href="#" class="btn btn-primary">点击进入</a>
                     </div>
                 </div>
             </div>
@@ -344,7 +356,7 @@
                     <img src="image0.jpg" class="card-img-top" alt="Image 1">
                     <div class="card-body">
                         <h5 class="card-title">Card Title</h5>
-                        <a href="Restoran.html" class="btn btn-primary">点击进入</a>
+                        <a href="#" class="btn btn-primary">点击进入</a>
                     </div>
                 </div>
             </div>
@@ -364,42 +376,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
-    <script>
-        function toggleNightMode() {
-            var body = document.body;
-            body.classList.toggle("night-mode");
-        }
-    </script>
-    <script>
-        var idleTimeout; // 定义全局变量来存储定时器ID
-        var idleTime = 90000; // 设置空闲时间（以毫秒为单位），此处设置为1分30秒
-
-        // 重置定时器函数
-        function resetIdleTimer() {
-            clearTimeout(idleTimeout);
-            idleTimeout = setTimeout(function () {
-                window.location.href = "QrCode.html"; // 这里替换为您的首页URL
-            }, idleTime);
-        }
-
-        // 启动定时器
-        function startIdleTimer() {
-            resetIdleTimer(); // 启动时重置计时器
-        }
-
-        // 监听用户交互事件
-        document.addEventListener("mousemove", resetIdleTimer);
-        document.addEventListener("keypress", resetIdleTimer);
-
-        // 查找视频元素
-        var videoElement = document.getElementById("yourVideoElementId"); // 用您的视频元素的实际ID替换"yourVideoElementId"
-
-        // 添加视频播放事件监听器
-        videoElement.addEventListener("play", resetIdleTimer);
-
-        // 初始化页面时启动计时器
-        startIdleTimer();
-    </Script>
     <script>
         const currentDate = new Date();
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };

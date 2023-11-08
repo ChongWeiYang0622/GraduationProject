@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        .night-mode {
+            background-color: #222;
+            /* 夜间模式背景颜色 */
+            color: #fff;
+            /* 夜间模式文本颜色 */
+            font-size: 16px;
+            /* 夜间模式字体大小 */
+        }
+    </style>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body class="night-mode hide-video">
+    <button onclick="toggleNightMode()">切换夜间模式</button>
+    
+    <script>
+        function toggleNightMode() {
+            var body = document.body;
+            body.classList.toggle("night-mode");
+            body.classList.toggle("hide-video"); // 切换背景视频的显示/隐藏
+    
+            // 存储用户的偏好设置在本地存储中
+            if (body.classList.contains("night-mode")) {
+                localStorage.setItem("nightMode", "on");
+            } else {
+                localStorage.setItem("nightMode", "off");
+            }
+        }
+    
+        // 检查页面加载时用户的夜间模式偏好
+        window.onload = function () {
+            var nightMode = localStorage.getItem("nightMode");
+            if (nightMode === "on") {
+                toggleNightMode();
+            }
+        };
+    </script>
+    <video autoplay muted>
+        <source src="首頁背景影片.mp4" type="video/mp4">
+    </video>
+</body>
+</html>
