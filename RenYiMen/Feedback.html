@@ -45,13 +45,36 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <Style>
-        .night-mode {
-            background-color: #222;
-            /* 夜间模式背景颜色 */
+        .offcanvas-body {
+            background-image: url('offcanvasbackground.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            color: #000;
+            /* Text color for the body */
+            padding: 10px;
+            /* Add padding for spacing */
+        }
+
+        .btn-grad {
+            background-image: linear-gradient(to right, #BA5370 0%, #F4E2D8 51%, #BA5370 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            /* change the direction of the change here */
             color: #fff;
-            /* 夜间模式文本颜色 */
-            font-size: 16px;
-            /* 夜间模式字体大小 */
+            text-decoration: none;
         }
 
         body {
@@ -95,6 +118,17 @@
             font-size: 2rem;
         }
 
+        .btn-primary {
+            background-color: #F8F8F8;
+            border: none;
+            color: #db71a1;
+        }
+
+        .btn-primary:hover {
+            background-color: #eaeaea;
+            color: #000000;
+        }
+
         .footer-bottom {
             background-color: #343a40;
             color: white;
@@ -112,17 +146,135 @@
         <div class="container justify-content-center align-items-center">
             <a class="navbar-brand" href="HomePage.html">
                 <img src="image1.jpg" alt="Logo">
-                任意门
+                任意門
             </a>
         </div>
     </nav>
 
     <nav>
         <a href="HomePage.html">首頁</a>
-        <a href="Feedback.html">推荐表单</a>
-        <a href="QrCode.html">扫描器</a>
-        <button onclick="toggleNightMode()">切换夜间模式</button>
+        <a href="Feedback.html">推薦表單</a>
+        <a href="QrCode.html">掃描器</a>
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            快速選項
+        </a>
     </nav>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">快速選項</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="btn-grad">
+                <div class="btn-grad:hover">
+                    店家區域
+                </div>
+            </div>
+            <hr>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="清水區" data-bs-toggle="dropdown">
+                    清水區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="清水區">
+                    <li><a class="dropdown-item" href="Fs1-1.html">王塔米糕</a></li>
+                    <li><a class="dropdown-item" href="Fs1-2.html">15號甜甜圈</a></li>
+                    <li><a class="dropdown-item" href="Fs1-3.html">朝朝暮暮</a></li>
+                </ul>
+
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="沙路區" data-bs-toggle="dropdown">
+                    沙路區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="沙路區">
+                    <li><a class="dropdown-item" href="Fs2-1.html">阿義鳳梨冰</a></li>
+                    <li><a class="dropdown-item" href="Fs2-2.html">沙鹿拉仔麵</a></li>
+                    <li><a class="dropdown-item" href="Fs2-3.html">沙鹿肉圓福</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="龍井區" data-bs-toggle="dropdown">
+                    龍井區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="龍井區">
+                    <li><a class="dropdown-item" href="Fs3-1.html">思維輕甜食</a></li>
+                    <li><a class="dropdown-item" href="Fs3-2.html">麻入口</a></li>
+                    <li><a class="dropdown-item" href="Fs3-3.html">Mr.38咖喱</a></li>
+                    <li><a class="dropdown-item" href="Fs3-4.html">橘光呼嚕</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="北區" data-bs-toggle="dropdown">
+                    北區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="北區">
+                    <li><a class="dropdown-item" href="Fs4-1.html">義興粥舖</a></li>
+                    <li><a class="dropdown-item" href="Fs4-2.html">桐生日可麗餅</a></li>
+                </ul>
+
+                <hr>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="西區" data-bs-toggle="dropdown">
+                    西區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="西區">
+                    <li><a class="dropdown-item" href="Fs5-1.html">蕗莘</a></li>
+                    <li><a class="dropdown-item" href="Fs5-2.html">倆柒貳貓</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="(西區)審計新村" data-bs-toggle="dropdown">
+                    (西區)審計新村
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="(西區)審計新村">
+                    <li><a class="dropdown-item" href="Fs6-1.html">甜月亮</a></li>
+                    <li><a class="dropdown-item" href="Fs6-2.html">黑心地瓜球</a></li>
+                    <li><a class="dropdown-item" href="Fs6-3.html">愚室</a></li>
+                    <li><a class="dropdown-item" href="Fs6-4.html">來甲奔</a></li>
+                    <li><a class="dropdown-item" href="Fs6-5.html">艸水木堂</a></li>
+                    <li><a class="dropdown-item" href="Fs6-6.html">成真咖啡</a></li>
+                </ul>
+
+                <hr>
+
+                <div class="btn-grad">
+                    <div class="btn-grad:hover">
+                        景點區域
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="東區" data-bs-toggle="dropdown">
+                    東區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="東區">
+                    <li><a class="dropdown-item" href="As1-1.html">旱溪夜市</a></li>
+                </ul>
+
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="西區" data-bs-toggle="dropdown">
+                    西區
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="西區">
+                    <li><a class="dropdown-item" href="As2-1.html">美術館</a></li>
+                    <li><a class="dropdown-item" href="As2-2.html">綠光</a></li>
+                    <li><a class="dropdown-item" href="As2-3.html">Park2</a></li>
+                </ul>
+
+                <hr>
+
+                <div class="btn-grad">
+                    <div class="btn-grad:hover">
+                        學校專區
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="靜宜大學" data-bs-toggle="dropdown">
+                    靜宜大學
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="靜宜大學">
+                    <li><a class="dropdown-item" href="Ss1-1.html">校園環境</a></li>
+                    <li><a class="dropdown-item" href="Ss1-3.html">校園食物</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <iframe
         src="https://script.google.com/macros/s/AKfycbxYPFzUxcw807h7BXL8BfYwZcN6YRbZYsKMQAursziZqdxh7XTS3tgqMBXtEAN2-2BJ/exec"
@@ -140,18 +292,12 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
     <script>
-        function toggleNightMode() {
-            var body = document.body;
-            body.classList.toggle("night-mode");
-        }
-    </script>
-    <script>
         const currentDate = new Date();
         const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
         const timeOptions = { hour: '2-digit', minute: '2-digit' };
 
         const dateElement = document.getElementById('date-time');
-        dateElement.innerHTML = `|| 今天: ${currentDate.toLocaleDateString('en-US', dateOptions)} || 时间: ${currentDate.toLocaleTimeString('en-US', timeOptions)} ||`;
+        dateElement.innerHTML = `|| 今天: ${currentDate.toLocaleDateString('en-US', dateOptions)} || 時間: ${currentDate.toLocaleTimeString('en-US', timeOptions)} ||`;
     </script>
 </body>
 
